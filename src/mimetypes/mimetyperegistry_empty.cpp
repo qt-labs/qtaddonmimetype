@@ -41,12 +41,12 @@ QList<QMimeTypeName> QMimeTypeRegistry::mimeTypes() const
 // ------------------------------------------------------------------------------------------------
 
 QMimeType QMimeTypeRegistry::findMimeType (
-                                 const QMimeTypeName &searchQMimeTypeName
+                                 const QMimeTypeName &searchMimeTypeName
                              ) const
 {
     typedef QMimeType Result;
 
-    Q_UNUSED(searchQMimeTypeName)
+    Q_UNUSED(searchMimeTypeName)
 
     return Result();
 }
@@ -127,12 +127,12 @@ QList<QServiceActionName> QMimeTypeRegistry::serviceActions() const
 // ------------------------------------------------------------------------------------------------
 
 QServiceAction QMimeTypeRegistry::findServiceAction (
-                                      const QServiceActionName &searchQServiceActionName
+                                      const QServiceActionName &searchServiceActionName
                                   )
 {
     typedef QServiceAction Result;
 
-    Q_UNUSED(searchQServiceActionName)
+    Q_UNUSED(searchServiceActionName)
 
     return Result();
 }
