@@ -1,6 +1,6 @@
-#include "serviceaction.h"
+#include "qserviceaction.h"
 
-#include "serviceaction_p.h"
+#include "qserviceaction_p.h"
 
 // ------------------------------------------------------------------------------------------------
 

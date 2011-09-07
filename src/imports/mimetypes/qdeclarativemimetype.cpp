@@ -1,31 +1,31 @@
-#include "declarativemimetype_p.h"
+#include "qdeclarativemimetype_p.h"
 
 #include <QtCore/QDebug>
 
 // ------------------------------------------------------------------------------------------------
 
-DeclarativeMimeType::DeclarativeMimeType(QObject *theParent) :
+QDeclarativeMimeType::QDeclarativeMimeType(QObject *theParent) :
         QObject(theParent),
         m_MimeType()
 {}
 
 // ------------------------------------------------------------------------------------------------
 
-DeclarativeMimeType::DeclarativeMimeType(const QMimeType &other, QObject *theParent) :
+QDeclarativeMimeType::QDeclarativeMimeType(const QMimeType &other, QObject *theParent) :
         QObject(theParent),
         m_MimeType(other)
 {}
 
 // ------------------------------------------------------------------------------------------------
 
-DeclarativeMimeType::~DeclarativeMimeType()
+QDeclarativeMimeType::~QDeclarativeMimeType()
 {
     //qDebug() << Q_FUNC_INFO << "name():" << name();
 }
 
 // ------------------------------------------------------------------------------------------------
 
-void DeclarativeMimeType::assign(DeclarativeMimeType *other)
+void QDeclarativeMimeType::assign(QDeclarativeMimeType *other)
 {
     if (other == 0) {
         qWarning() << Q_FUNC_INFO << "other:" << other;
@@ -37,7 +37,7 @@ void DeclarativeMimeType::assign(DeclarativeMimeType *other)
 
 // ------------------------------------------------------------------------------------------------
 
-bool DeclarativeMimeType::equals(DeclarativeMimeType *other) const
+bool QDeclarativeMimeType::equals(QDeclarativeMimeType *other) const
 {
     if (other == 0) {
         qWarning() << Q_FUNC_INFO << "other:" << other;
@@ -49,63 +49,63 @@ bool DeclarativeMimeType::equals(DeclarativeMimeType *other) const
 
 // ------------------------------------------------------------------------------------------------
 
-QMimeType DeclarativeMimeType::mimeType() const
+QMimeType QDeclarativeMimeType::mimeType() const
 {
     return m_MimeType;
 }
 
 // ------------------------------------------------------------------------------------------------
 
-bool DeclarativeMimeType::isValid() const
+bool QDeclarativeMimeType::isValid() const
 {
     return m_MimeType.isValid();
 }
 
 // ------------------------------------------------------------------------------------------------
 
-const QMimeTypeName &DeclarativeMimeType::name() const
+const QMimeTypeName &QDeclarativeMimeType::name() const
 {
     return m_MimeType.name();
 }
 
 // ------------------------------------------------------------------------------------------------
 
-void DeclarativeMimeType::setName(const QMimeTypeName &newName)
+void QDeclarativeMimeType::setName(const QMimeTypeName &newName)
 {
     m_MimeType = QMimeType(newName, m_MimeType.displayName(), m_MimeType.iconUrl(), m_MimeType.fileExtentions());
 }
 
 // ------------------------------------------------------------------------------------------------
 
-const QString &DeclarativeMimeType::displayName() const
+const QString &QDeclarativeMimeType::displayName() const
 {
     return m_MimeType.displayName();
 }
 
 // ------------------------------------------------------------------------------------------------
 
-void DeclarativeMimeType::setDisplayName(const QString &newDisplayName)
+void QDeclarativeMimeType::setDisplayName(const QString &newDisplayName)
 {
     m_MimeType = QMimeType(m_MimeType.name(), newDisplayName, m_MimeType.iconUrl(), m_MimeType.fileExtentions());
 }
 
 // ------------------------------------------------------------------------------------------------
 
-const QString &DeclarativeMimeType::iconUrl() const
+const QString &QDeclarativeMimeType::iconUrl() const
 {
     return m_MimeType.iconUrl();
 }
 
 // ------------------------------------------------------------------------------------------------
 
-void DeclarativeMimeType::setIconUrl(const QString &newIconUrl)
+void QDeclarativeMimeType::setIconUrl(const QString &newIconUrl)
 {
     m_MimeType = QMimeType(m_MimeType.name(), m_MimeType.displayName(), newIconUrl, m_MimeType.fileExtentions());
 }
 
 // ------------------------------------------------------------------------------------------------
 
-QVariantList DeclarativeMimeType::fileExtentions() const
+QVariantList QDeclarativeMimeType::fileExtentions() const
 {
     QVariantList result;
 
@@ -118,7 +118,7 @@ QVariantList DeclarativeMimeType::fileExtentions() const
 
 // ------------------------------------------------------------------------------------------------
 
-void DeclarativeMimeType::setFileExtentions(const QVariantList &newFileExtentions)
+void QDeclarativeMimeType::setFileExtentions(const QVariantList &newFileExtentions)
 {
     QList<QString> result;
 

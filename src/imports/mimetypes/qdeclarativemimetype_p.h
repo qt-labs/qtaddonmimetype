@@ -1,7 +1,7 @@
 #ifndef DECLARATIVE_MIME_TYPE_P_H_INCLUDED
 #define DECLARATIVE_MIME_TYPE_P_H_INCLUDED
 
-#include "mimetype.h"
+#include "qmimetype.h"
 
 #include <QtDeclarative/qdeclarative.h>
 
@@ -9,7 +9,7 @@
 
 // ------------------------------------------------------------------------------------------------
 
-class DeclarativeMimeType : public QObject
+class QDeclarativeMimeType : public QObject
 {
     Q_OBJECT
 
@@ -37,18 +37,18 @@ class DeclarativeMimeType : public QObject
 protected:
     // We keep this destructor with its default value of 0 protected since only
     // QDeclarativePrivate::QDeclarativeElement<T> needs it:
-    DeclarativeMimeType(QObject *theParent = 0);
+    QDeclarativeMimeType(QObject *theParent = 0);
 
 public:
     // We don't allow theParent to have a default value of 0 because in all
     // likelyhood we want to force the caller to specify its QObject so the
     // object will get destroyed in the caller's destructor:
-    DeclarativeMimeType(const QMimeType &other, QObject *theParent);
+    QDeclarativeMimeType(const QMimeType &other, QObject *theParent);
 
-    ~DeclarativeMimeType();
+    ~QDeclarativeMimeType();
 
-    Q_INVOKABLE void assign(DeclarativeMimeType *other);
-    Q_INVOKABLE bool equals(DeclarativeMimeType *other) const;
+    Q_INVOKABLE void assign(QDeclarativeMimeType *other);
+    Q_INVOKABLE bool equals(QDeclarativeMimeType *other) const;
 
     QMimeType mimeType() const;
 
@@ -67,6 +67,6 @@ private:
     QMimeType m_MimeType;
 };
 
-QML_DECLARE_TYPE(DeclarativeMimeType)
+QML_DECLARE_TYPE(QDeclarativeMimeType)
 
 #endif

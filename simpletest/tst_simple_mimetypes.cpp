@@ -1,4 +1,4 @@
-#include "mimetyperegistry.h"
+#include "qmimetyperegistry.h"
 
 #include <QtCore/QCoreApplication>
 #include <QtCore/QDebug>

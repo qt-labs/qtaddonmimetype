@@ -1,6 +1,6 @@
-#include "mimetype.h"
+#include "qmimetype.h"
 
-#include "mimetype_p.h"
+#include "qmimetype_p.h"
 
 // ------------------------------------------------------------------------------------------------
 

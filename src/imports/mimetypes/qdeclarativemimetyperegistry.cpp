@@ -1,36 +1,36 @@
-#include "declarativemimetyperegistry_p.h"
+#include "qdeclarativemimetyperegistry_p.h"
 
-#include "declarativemimetype_p.h"
-#include "declarativeserviceaction_p.h"
+#include "qdeclarativemimetype_p.h"
+#include "qdeclarativeserviceaction_p.h"
 
 #include <QtCore/QDebug>
 
 // ------------------------------------------------------------------------------------------------
 
-DeclarativeMimeTypeRegistry::DeclarativeMimeTypeRegistry(QObject *theParent) :
+QDeclarativeMimeTypeRegistry::QDeclarativeMimeTypeRegistry(QObject *theParent) :
         QObject(theParent),
         m_MimeTypeRegistry()
 {}
 
 // ------------------------------------------------------------------------------------------------
 
-DeclarativeMimeTypeRegistry::~DeclarativeMimeTypeRegistry()
+QDeclarativeMimeTypeRegistry::~QDeclarativeMimeTypeRegistry()
 {
     //qDebug() << Q_FUNC_INFO;
 }
 
 // ------------------------------------------------------------------------------------------------
 
-QMimeTypeRegistry &DeclarativeMimeTypeRegistry::mimeTypeRegistry()
+QMimeTypeRegistry &QDeclarativeMimeTypeRegistry::mimeTypeRegistry()
 {
     return m_MimeTypeRegistry;
 }
 
 // ------------------------------------------------------------------------------------------------
 
-void DeclarativeMimeTypeRegistry::insertMimeType (
-                                      DeclarativeMimeType *mimeType
-                                  )
+void QDeclarativeMimeTypeRegistry::insertMimeType (
+                                       QDeclarativeMimeType *mimeType
+                                   )
 {
     if (mimeType == 0) {
         qWarning() << Q_FUNC_INFO << "mimeType:" << mimeType;
@@ -42,7 +42,7 @@ void DeclarativeMimeTypeRegistry::insertMimeType (
 
 // ------------------------------------------------------------------------------------------------
 
-QVariantList DeclarativeMimeTypeRegistry::mimeTypes() const
+QVariantList QDeclarativeMimeTypeRegistry::mimeTypes() const
 {
     QVariantList result;
 
@@ -55,11 +55,11 @@ QVariantList DeclarativeMimeTypeRegistry::mimeTypes() const
 
 // ------------------------------------------------------------------------------------------------
 
-DeclarativeMimeType *DeclarativeMimeTypeRegistry::findMimeType (
+QDeclarativeMimeType *QDeclarativeMimeTypeRegistry::findMimeType (
                                                       const QMimeTypeName &mimeTypeName
                                                   )
 {
-    return new DeclarativeMimeType (
+    return new QDeclarativeMimeType (
                    m_MimeTypeRegistry.findMimeType(mimeTypeName),
                    this   // <- The new object will be released later
                           //    when this registry is released.
@@ -68,16 +68,16 @@ DeclarativeMimeType *DeclarativeMimeTypeRegistry::findMimeType (
 
 // ------------------------------------------------------------------------------------------------
 
-void DeclarativeMimeTypeRegistry::removeMimeType (
-                                      const QMimeTypeName &mimeTypeName
-                                  )
+void QDeclarativeMimeTypeRegistry::removeMimeType (
+                                       const QMimeTypeName &mimeTypeName
+                                   )
 {
     m_MimeTypeRegistry.removeMimeType(mimeTypeName);
 }
 
 // ------------------------------------------------------------------------------------------------
 
-QVariantList DeclarativeMimeTypeRegistry::fileExtentions() const
+QVariantList QDeclarativeMimeTypeRegistry::fileExtentions() const
 {
     QVariantList result;
 
@@ -90,18 +90,18 @@ QVariantList DeclarativeMimeTypeRegistry::fileExtentions() const
 
 // ------------------------------------------------------------------------------------------------
 
-QString DeclarativeMimeTypeRegistry::extractFileExtention (
-                                         const QString &fileName
-                                     ) const
+QString QDeclarativeMimeTypeRegistry::extractFileExtention (
+                                          const QString &fileName
+                                      ) const
 {
     return m_MimeTypeRegistry.extractFileExtention(fileName);
 }
 
 // ------------------------------------------------------------------------------------------------
 
-QVariantList DeclarativeMimeTypeRegistry::findMimeTypes (
-                                              const QString &fileExtention
-                                          ) const
+QVariantList QDeclarativeMimeTypeRegistry::findMimeTypes (
+                                               const QString &fileExtention
+                                           ) const
 {
     QVariantList result;
 
@@ -114,18 +114,18 @@ QVariantList DeclarativeMimeTypeRegistry::findMimeTypes (
 
 // ------------------------------------------------------------------------------------------------
 
-QMimeTypeName DeclarativeMimeTypeRegistry::determineMimeType (
-                                               const QByteArray &data
-                                           ) const
+QMimeTypeName QDeclarativeMimeTypeRegistry::determineMimeType (
+                                                const QByteArray &data
+                                            ) const
 {
     return m_MimeTypeRegistry.determineMimeType(data);
 }
 
 // ------------------------------------------------------------------------------------------------
 
-void DeclarativeMimeTypeRegistry::insertServiceAction (
-                                      DeclarativeServiceAction *serviceAction
-                                  )
+void QDeclarativeMimeTypeRegistry::insertServiceAction (
+                                       QDeclarativeServiceAction *serviceAction
+                                   )
 {
     if (serviceAction == 0) {
         qWarning() << Q_FUNC_INFO << "serviceAction:" << serviceAction;
@@ -137,7 +137,7 @@ void DeclarativeMimeTypeRegistry::insertServiceAction (
 
 // ------------------------------------------------------------------------------------------------
 
-QVariantList DeclarativeMimeTypeRegistry::serviceActions() const
+QVariantList QDeclarativeMimeTypeRegistry::serviceActions() const
 {
     QVariantList result;
 
@@ -150,12 +150,12 @@ QVariantList DeclarativeMimeTypeRegistry::serviceActions() const
 
 // ------------------------------------------------------------------------------------------------
 
-DeclarativeServiceAction *
-    DeclarativeMimeTypeRegistry::findServiceAction (
-                                     const QServiceActionName &serviceActionName
-                                 )
+QDeclarativeServiceAction *
+    QDeclarativeMimeTypeRegistry::findServiceAction (
+                                      const QServiceActionName &serviceActionName
+                                  )
 {
-    return new DeclarativeServiceAction (
+    return new QDeclarativeServiceAction (
                    m_MimeTypeRegistry.findServiceAction(serviceActionName),
                    this   // <- The new object will be released later
                           //    when this registry is released.
@@ -164,72 +164,72 @@ DeclarativeServiceAction *
 
 // ------------------------------------------------------------------------------------------------
 
-void DeclarativeMimeTypeRegistry::removeServiceAction (
-                                      const QServiceActionName &serviceActionName
-                                  )
+void QDeclarativeMimeTypeRegistry::removeServiceAction (
+                                       const QServiceActionName &serviceActionName
+                                   )
 {
     return m_MimeTypeRegistry.removeServiceAction(serviceActionName);
 }
 
 // ------------------------------------------------------------------------------------------------
 
-bool DeclarativeMimeTypeRegistry::userAlwaysSelectsApplication (
-                                      const QServiceActionName &serviceActionName,
-                                      const QMimeTypeName &mimeTypeName
-                                  ) const
+bool QDeclarativeMimeTypeRegistry::userAlwaysSelectsApplication (
+                                       const QServiceActionName &serviceActionName,
+                                       const QMimeTypeName &mimeTypeName
+                                   ) const
 {
     return m_MimeTypeRegistry.userAlwaysSelectsApplication(serviceActionName, mimeTypeName);
 }
 
 // ------------------------------------------------------------------------------------------------
 
-void DeclarativeMimeTypeRegistry::setUserAlwaysSelectsApplication (
-                                      const QServiceActionName &serviceActionName,
-                                      const QMimeTypeName &mimeTypeName,
-                                      const bool newSetting
-                                  )
+void QDeclarativeMimeTypeRegistry::setUserAlwaysSelectsApplication (
+                                       const QServiceActionName &serviceActionName,
+                                       const QMimeTypeName &mimeTypeName,
+                                       const bool newSetting
+                                   )
 {
     return m_MimeTypeRegistry.setUserAlwaysSelectsApplication(serviceActionName, mimeTypeName, newSetting);
 }
 
 // ------------------------------------------------------------------------------------------------
 
-void DeclarativeMimeTypeRegistry::registerApplication (
-                                      const QApplicationId &applicationId,
-                                      const QServiceActionName &serviceActionName,
-                                      const QMimeTypeName &mimeTypeName
-                                  )
+void QDeclarativeMimeTypeRegistry::registerApplication (
+                                       const QApplicationId &applicationId,
+                                       const QServiceActionName &serviceActionName,
+                                       const QMimeTypeName &mimeTypeName
+                                   )
 {
     return m_MimeTypeRegistry.registerApplication(applicationId, serviceActionName, mimeTypeName);
 }
 
 // ------------------------------------------------------------------------------------------------
 
-void DeclarativeMimeTypeRegistry::increaseApplicationPreference (
-                                      const QApplicationId &applicationId,
-                                      const QServiceActionName &serviceActionName,
-                                      const QMimeTypeName &mimeTypeName
-                                  )
+void QDeclarativeMimeTypeRegistry::increaseApplicationPreference (
+                                       const QApplicationId &applicationId,
+                                       const QServiceActionName &serviceActionName,
+                                       const QMimeTypeName &mimeTypeName
+                                   )
 {
     return m_MimeTypeRegistry.increaseApplicationPreference(applicationId, serviceActionName, mimeTypeName);
 }
 
 // ------------------------------------------------------------------------------------------------
 
-void DeclarativeMimeTypeRegistry::decreaseApplicationPreference (
-                                      const QApplicationId &applicationId,
-                                      const QServiceActionName &serviceActionName,
-                                      const QMimeTypeName &mimeTypeName
-                                  )
+void QDeclarativeMimeTypeRegistry::decreaseApplicationPreference (
+                                       const QApplicationId &applicationId,
+                                       const QServiceActionName &serviceActionName,
+                                       const QMimeTypeName &mimeTypeName
+                                   )
 {
     return m_MimeTypeRegistry.decreaseApplicationPreference(applicationId, serviceActionName, mimeTypeName);
 }
 
 // ------------------------------------------------------------------------------------------------
 
-void DeclarativeMimeTypeRegistry::unregisterApplication (
-                                      const QApplicationId &applicationId
-                                  )
+void QDeclarativeMimeTypeRegistry::unregisterApplication (
+                                       const QApplicationId &applicationId
+                                   )
 {
     return m_MimeTypeRegistry.unregisterApplication(applicationId);
 }
@@ -237,9 +237,9 @@ void DeclarativeMimeTypeRegistry::unregisterApplication (
 // ------------------------------------------------------------------------------------------------
 
 
-QVariantList DeclarativeMimeTypeRegistry::findApplications (
-                                              const QMimeTypeName &mimeTypeName
-                                          ) const
+QVariantList QDeclarativeMimeTypeRegistry::findApplications (
+                                               const QMimeTypeName &mimeTypeName
+                                           ) const
 {
     QVariantList result;
 
@@ -260,10 +260,10 @@ QVariantList DeclarativeMimeTypeRegistry::findApplications (
 
 // ------------------------------------------------------------------------------------------------
 
-QVariantList DeclarativeMimeTypeRegistry::findApplications (
-                                              const QServiceActionName &serviceActionName,
-                                              const QMimeTypeName &mimeTypeName
-                                          ) const
+QVariantList QDeclarativeMimeTypeRegistry::findApplications (
+                                               const QServiceActionName &serviceActionName,
+                                               const QMimeTypeName &mimeTypeName
+                                           ) const
 {
     QVariantList result;
 

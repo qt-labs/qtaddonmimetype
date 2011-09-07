@@ -1,11 +1,9 @@
-QT       += core
-QT       -= gui
+CONFIG   += qt plugin
+TEMPLATE = lib
+TARGET   = declarative_mimetypes
+DESTDIR  = ../../../imports/com/nokia/MimeTypes
 
-CONFIG   += console
-CONFIG   -= app_bundle
-TEMPLATE = app
-TARGET   = tst_simple_mimetypes
-
+# QtCore/qlist.h uses /usr/include/limits.h which uses does not compile with -pedantic.
 # QtDeclarative/qdeclarativeprivate.h will not compile with -pedantic.
 #MAKE_CXXFLAGS += -W -Wall -Wextra -Werror -ansi -pedantic -Wshadow -Wno-long-long -Wnon-virtual-dtor -Wc++0x-compat
 QMAKE_CXXFLAGS += -W -Wall -Wextra -Werror -ansi           -Wshadow -Wno-long-long -Wnon-virtual-dtor -Wc++0x-compat
@@ -17,15 +15,13 @@ include_dependencies.commands = @if grep \"^-include \\*.d\" Makefile >/dev/null
 QMAKE_EXTRA_TARGETS += include_dependencies
 POST_TARGETDEPS += include_dependencies
 
-# runtime environment
-LIBS += -L ../lib -lqt-mimetypes
 
-API_DIR = ..
+API_DIR = ../../..
 
-INCLUDEPATH += $$API_DIR ../src/mimetypes
+INCLUDEPATH += $$API_DIR/src/mimetypes
 
 
-SOURCES += tst_simple_mimetypes.cpp
+SOURCES += $$API_DIR/src/imports/mimetypes/mimetypes.cpp
 
 # No headers
 
@@ -37,3 +33,9 @@ SOURCES += $$API_DIR/src/imports/mimetypes/qdeclarativemimetype.cpp \
 HEADERS += $$API_DIR/src/imports/mimetypes/qdeclarativemimetype_p.h \
            $$API_DIR/src/imports/mimetypes/qdeclarativemimetyperegistry_p.h \
            $$API_DIR/src/imports/mimetypes/qdeclarativeserviceaction_p.h
+
+
+qmldir.files += $$PWD/qmldir
+qmldir.path += ../../../imports/com/nokia/MimeTypes
+
+INSTALLS += qmldir

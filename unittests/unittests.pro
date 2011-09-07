@@ -8,7 +8,7 @@ QMAKE_CXXFLAGS += -W -Wall -Wextra -Werror -ansi -pedantic -Wshadow -Wno-long-lo
 # dependency management
 QMAKE_CXXFLAGS += -MMD
 include_dependencies.target = include_dependencies
-include_dependencies.commands = @if grep \"^include \\*.d\" Makefile >/dev/null 2>&1; then echo \"Dependency files are already included.\"; else echo \"include *.d\" >> Makefile; echo \"Please rerun make because dependency files will be included next time.\"; fi
+include_dependencies.commands = @if grep \"^-include \\*.d\" Makefile >/dev/null 2>&1; then echo \"Dependency files are already included.\"; else echo \"-include *.d\" >> Makefile; echo \"Please rerun make because dependency files will be included next time.\"; fi
 QMAKE_EXTRA_TARGETS += include_dependencies
 POST_TARGETDEPS += include_dependencies
 

@@ -1,18 +1,18 @@
 #ifndef DECLARATIVE_MIME_TYPE_REGISTRY_P_H_INCLUDED
 #define DECLARATIVE_MIME_TYPE_REGISTRY_P_H_INCLUDED
 
-#include "mimetyperegistry.h"
+#include "qmimetyperegistry.h"
 
 #include <QtDeclarative/qdeclarative.h>
 
 #include <QtCore/QObject>
 
-class DeclarativeMimeType;
-class DeclarativeServiceAction;
+class QDeclarativeMimeType;
+class QDeclarativeServiceAction;
 
 // ------------------------------------------------------------------------------------------------
 
-class DeclarativeMimeTypeRegistry : public QObject
+class QDeclarativeMimeTypeRegistry : public QObject
 {
     Q_OBJECT
 
@@ -31,24 +31,24 @@ class DeclarativeMimeTypeRegistry : public QObject
 protected:
     // We keep this destructor with its default value of 0 protected since only
     // QDeclarativePrivate::QDeclarativeElement<T> needs it:
-    DeclarativeMimeTypeRegistry(QObject *theParent = 0);
+    QDeclarativeMimeTypeRegistry(QObject *theParent = 0);
 
 public:
-    ~DeclarativeMimeTypeRegistry();
+    ~QDeclarativeMimeTypeRegistry();
 
     QMimeTypeRegistry &mimeTypeRegistry();
 
     // --------------------------------------------------------------------------------------------
 
     Q_INVOKABLE void insertMimeType (
-                         DeclarativeMimeType *mimeType
+                         QDeclarativeMimeType *mimeType
                      );
 
     QVariantList mimeTypes() const;
 
-    Q_INVOKABLE DeclarativeMimeType *findMimeType (
-                                         const QString &mimeTypeName
-                                     );
+    Q_INVOKABLE QDeclarativeMimeType *findMimeType (
+                                          const QString &mimeTypeName
+                                      );
 
     Q_INVOKABLE void removeMimeType (
                          const QString &mimeTypeName
@@ -75,14 +75,14 @@ public:
     // --------------------------------------------------------------------------------------------
 
     Q_INVOKABLE void insertServiceAction (
-                         DeclarativeServiceAction *serviceAction
+                         QDeclarativeServiceAction *serviceAction
                      );
 
     QVariantList serviceActions() const;
 
-    Q_INVOKABLE DeclarativeServiceAction *findServiceAction (
-                                              const QString &serviceActionName
-                                          );
+    Q_INVOKABLE QDeclarativeServiceAction *findServiceAction (
+                                               const QString &serviceActionName
+                                           );
 
     Q_INVOKABLE void removeServiceAction (
                          const QString &serviceActionName
@@ -140,6 +140,6 @@ private:
     QMimeTypeRegistry m_MimeTypeRegistry;
 };
 
-QML_DECLARE_TYPE(DeclarativeMimeTypeRegistry)
+QML_DECLARE_TYPE(QDeclarativeMimeTypeRegistry)
 
 #endif

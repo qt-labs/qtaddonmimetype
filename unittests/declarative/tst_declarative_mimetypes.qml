@@ -460,5 +460,31 @@ TestCase {
 
         compare(resultOfFindApplications2.length, 1)
         compare(resultOfFindApplications2[0], gwenviewApplicationId)
+
+        // ----------------------------------------------------------------------------------------
+
+        mimeTypeRegistry.setUserAlwaysSelectsApplication(editServiceActionName(), pngMimeTypeName(), false)
+
+        mimeTypeRegistry.unregisterApplication(showimgApplicationId)
+
+        compare(mimeTypeRegistry.userAlwaysSelectsApplication(editServiceActionName(), pngMimeTypeName()), true)
+
+        resultOfFindApplications1 = mimeTypeRegistry.findApplications(pngMimeTypeName())
+
+        compare(resultOfFindApplications1.length, 2)
+        compare(resultOfFindApplications1[0][0], gwenviewApplicationId)
+        compare(resultOfFindApplications1[0][1], editServiceActionName())   // edit is before share
+        compare(resultOfFindApplications1[1][0], gwenviewApplicationId)
+        compare(resultOfFindApplications1[1][1], shareOnPicasaWebAlbumsName())
+
+        resultOfFindApplications2 = mimeTypeRegistry.findApplications(editServiceActionName(), pngMimeTypeName())
+
+        compare(resultOfFindApplications2.length, 1)
+        compare(resultOfFindApplications2[0], gwenviewApplicationId)
+
+        resultOfFindApplications2 = mimeTypeRegistry.findApplications(shareOnPicasaWebAlbumsName(), pngMimeTypeName())
+
+        compare(resultOfFindApplications2.length, 1)
+        compare(resultOfFindApplications2[0], gwenviewApplicationId)
     }
 }

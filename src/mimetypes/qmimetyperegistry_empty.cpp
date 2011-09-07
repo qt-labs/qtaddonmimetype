@@ -1,6 +1,4 @@
-#include "mimetyperegistry.h"
-
-#include <QtCore/QFuture>
+#include "qmimetyperegistry.h"
 
 // ------------------------------------------------------------------------------------------------
 
@@ -75,9 +73,18 @@ QString QMimeTypeRegistry::extractFileExtention (
                                const QString &fileName
                            ) const
 {
-    Q_UNUSED(fileName)
+    QString result;
 
-    return QString();
+    const QList<QString> theFileExtentions (fileExtentions());
+
+    foreach (const QString &fileExtention, theFileExtentions) {
+        if (fileExtention.length() > result.length() &&
+                fileName.right(fileExtention.length()) == fileExtention) {
+            result = fileExtention;
+        }
+    }
+
+    return result;
 }
 
 // ------------------------------------------------------------------------------------------------

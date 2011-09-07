@@ -1,7 +1,7 @@
 #ifndef DECLARATIVE_SERVICE_ACTION_P_INCLUDED
 #define DECLARATIVE_SERVICE_ACTION_P_INCLUDED
 
-#include "serviceaction.h"
+#include "qserviceaction.h"
 
 #include <QtDeclarative/qdeclarative.h>
 
@@ -9,7 +9,7 @@
 
 // ------------------------------------------------------------------------------------------------
 
-class DeclarativeServiceAction : public QObject
+class QDeclarativeServiceAction : public QObject
 {
     Q_OBJECT
 
@@ -32,18 +32,18 @@ class DeclarativeServiceAction : public QObject
 protected:
     // We keep this destructor with its default value of 0 protected since only
     // QDeclarativePrivate::QDeclarativeElement<T> needs it:
-    DeclarativeServiceAction(QObject *theParent = 0);
+    QDeclarativeServiceAction(QObject *theParent = 0);
 
 public:
     // We don't allow theParent to have a default value of 0 because in all
     // likelyhood we want to force the caller to specify its QObject so the
     // object will get destroyed in the caller's destructor:
-    DeclarativeServiceAction(const QServiceAction &other, QObject *theParent);
+    QDeclarativeServiceAction(const QServiceAction &other, QObject *theParent);
 
-    ~DeclarativeServiceAction();
+    ~QDeclarativeServiceAction();
 
-    Q_INVOKABLE void assign(DeclarativeServiceAction *other);
-    Q_INVOKABLE bool equals(DeclarativeServiceAction *other) const;
+    Q_INVOKABLE void assign(QDeclarativeServiceAction *other);
+    Q_INVOKABLE bool equals(QDeclarativeServiceAction *other) const;
 
     QServiceAction serviceAction() const;
 
@@ -60,6 +60,6 @@ private:
     QServiceAction m_ServiceAction;
 };
 
-QML_DECLARE_TYPE(DeclarativeServiceAction)
+QML_DECLARE_TYPE(QDeclarativeServiceAction)
 
 #endif

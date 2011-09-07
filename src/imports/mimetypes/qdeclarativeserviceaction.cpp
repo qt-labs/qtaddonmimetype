@@ -1,31 +1,31 @@
-#include "declarativeserviceaction_p.h"
+#include "qdeclarativeserviceaction_p.h"
 
 #include <QtCore/QDebug>
 
 // ------------------------------------------------------------------------------------------------
 
-DeclarativeServiceAction::DeclarativeServiceAction(QObject *theParent) :
+QDeclarativeServiceAction::QDeclarativeServiceAction(QObject *theParent) :
         QObject(theParent),
         m_ServiceAction()
 {}
 
 // ------------------------------------------------------------------------------------------------
 
-DeclarativeServiceAction::DeclarativeServiceAction(const QServiceAction &other, QObject *theParent) :
+QDeclarativeServiceAction::QDeclarativeServiceAction(const QServiceAction &other, QObject *theParent) :
         QObject(theParent),
         m_ServiceAction(other)
 {}
 
 // ------------------------------------------------------------------------------------------------
 
-DeclarativeServiceAction::~DeclarativeServiceAction()
+QDeclarativeServiceAction::~QDeclarativeServiceAction()
 {
     //qDebug() << Q_FUNC_INFO << "name():" << name();
 }
 
 // ------------------------------------------------------------------------------------------------
 
-void DeclarativeServiceAction::assign(DeclarativeServiceAction *other)
+void QDeclarativeServiceAction::assign(QDeclarativeServiceAction *other)
 {
     if (other == 0) {
         qWarning() << Q_FUNC_INFO << "other:" << other;
@@ -37,7 +37,7 @@ void DeclarativeServiceAction::assign(DeclarativeServiceAction *other)
 
 // ------------------------------------------------------------------------------------------------
 
-bool DeclarativeServiceAction::equals(DeclarativeServiceAction *other) const
+bool QDeclarativeServiceAction::equals(QDeclarativeServiceAction *other) const
 {
     if (other == 0) {
         qWarning() << Q_FUNC_INFO << "other:" << other;
@@ -49,56 +49,56 @@ bool DeclarativeServiceAction::equals(DeclarativeServiceAction *other) const
 
 // ------------------------------------------------------------------------------------------------
 
-QServiceAction DeclarativeServiceAction::serviceAction() const
+QServiceAction QDeclarativeServiceAction::serviceAction() const
 {
     return m_ServiceAction;
 }
 
 // ------------------------------------------------------------------------------------------------
 
-bool DeclarativeServiceAction::isValid() const
+bool QDeclarativeServiceAction::isValid() const
 {
     return m_ServiceAction.isValid();
 }
 
 // ------------------------------------------------------------------------------------------------
 
-const QServiceActionName &DeclarativeServiceAction::name() const
+const QServiceActionName &QDeclarativeServiceAction::name() const
 {
     return m_ServiceAction.name();
 }
 
 // ------------------------------------------------------------------------------------------------
 
-void DeclarativeServiceAction::setName(const QServiceActionName &newName)
+void QDeclarativeServiceAction::setName(const QServiceActionName &newName)
 {
     m_ServiceAction = QServiceAction(newName, m_ServiceAction.displayName(), m_ServiceAction.iconUrl());
 }
 
 // ------------------------------------------------------------------------------------------------
 
-QString DeclarativeServiceAction::displayName() const
+QString QDeclarativeServiceAction::displayName() const
 {
     return m_ServiceAction.displayName();
 }
 
 // ------------------------------------------------------------------------------------------------
 
-void DeclarativeServiceAction::setDisplayName(const QString &newDisplayName)
+void QDeclarativeServiceAction::setDisplayName(const QString &newDisplayName)
 {
     m_ServiceAction = QServiceAction(m_ServiceAction.name(), newDisplayName, m_ServiceAction.iconUrl());
 }
 
 // ------------------------------------------------------------------------------------------------
 
-QString DeclarativeServiceAction::iconUrl() const
+QString QDeclarativeServiceAction::iconUrl() const
 {
     return m_ServiceAction.iconUrl();
 }
 
 // ------------------------------------------------------------------------------------------------
 
-void DeclarativeServiceAction::setIconUrl(const QString &newIconUrl)
+void QDeclarativeServiceAction::setIconUrl(const QString &newIconUrl)
 {
     m_ServiceAction = QServiceAction(m_ServiceAction.name(), m_ServiceAction.displayName(), newIconUrl);
 }

@@ -1,9 +1,9 @@
 #ifndef MIMETYPES_H_INCLUDED
 #define MIMETYPES_H_INCLUDED
 
-#include "applicationfwd.h"
-#include "mimetype.h"
-#include "serviceaction.h"
+#include "qmimetype.h"
+#include "qmimetypesfwd.h"
+#include "qserviceaction.h"
 
 #include <QtCore/QList>
 #include <QtCore/QPair>

@@ -1,8 +1,6 @@
 #ifndef MIME_TYPE_P_H_INCLUDED
 #define MIME_TYPE_P_H_INCLUDED
 
-#include "mimetype.h"
-
 #include <QtCore/QList>
 #include <QtCore/QString>
 

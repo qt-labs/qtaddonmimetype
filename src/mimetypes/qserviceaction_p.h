@@ -1,8 +1,6 @@
 #ifndef SERVICE_ACTION_P_H_INCLUDED
 #define SERVICE_ACTION_P_H_INCLUDED
 
-#include "serviceaction.h"
-
 #include <QtCore/QString>
 
 // ------------------------------------------------------------------------------------------------
