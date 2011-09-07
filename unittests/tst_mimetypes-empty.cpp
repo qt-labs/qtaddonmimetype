@@ -671,34 +671,6 @@ void tst_mimetypes::test_QMimeTypeRegistry_findApplications()
 
     QCOMPARE(resultOfFindApplications2.length(), 1);
     QCOMPARE(resultOfFindApplications2[0], gwenviewApplicationId);
-
-    // --------------------------------------------------------------------------------------------
-
-    mimeTypeRegistry->setUserAlwaysSelectsApplication(editServiceActionName(), pngMimeTypeName(), false);
-
-    mimeTypeRegistry->unregisterApplication(showimgApplicationId);
-
-    QVERIFY(mimeTypeRegistry->userAlwaysSelectsApplication(editServiceActionName(), pngMimeTypeName()));
-
-    resultOfFindApplications1 = mimeTypeRegistry->findApplications(pngMimeTypeName());
-
-    QCOMPARE(resultOfFindApplications1.length(), 2);
-    QCOMPARE(resultOfFindApplications1[0].first, gwenviewApplicationId);
-    QCOMPARE(resultOfFindApplications1[0].second, editServiceActionName());   // edit is before share
-    QCOMPARE(resultOfFindApplications1[1].first, gwenviewApplicationId);
-    QCOMPARE(resultOfFindApplications1[1].second, shareOnPicasaWebAlbumsName);
-
-    resultOfFindApplications2 =
-        mimeTypeRegistry->findApplications(editServiceActionName(), pngMimeTypeName());
-
-    QCOMPARE(resultOfFindApplications2.length(), 1);
-    QCOMPARE(resultOfFindApplications2[0], gwenviewApplicationId);
-
-    resultOfFindApplications2 =
-        mimeTypeRegistry->findApplications(shareOnPicasaWebAlbumsName, pngMimeTypeName());
-
-    QCOMPARE(resultOfFindApplications2.length(), 1);
-    QCOMPARE(resultOfFindApplications2[0], gwenviewApplicationId);
 }
 
 // ------------------------------------------------------------------------------------------------
