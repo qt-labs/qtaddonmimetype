@@ -3,7 +3,11 @@ TEMPLATE = app
 TARGET   = tst_mimetypes
 DEPENDPATH += .
 
-QMAKE_CXXFLAGS += -W -Wall -Wextra -Werror -ansi -pedantic -Wshadow -Wno-long-long -Wnon-virtual-dtor -Wc++0x-compat
+QMAKE_CXXFLAGS += -W -Wall -Wextra -Werror -ansi -pedantic -Wshadow -Wno-long-long -Wnon-virtual-dtor
+mac|darwin: {
+} else {
+    QMAKE_CXXFLAGS += -Wc++0x-compat
+}
 
 # dependency management
 QMAKE_CXXFLAGS += -MMD
@@ -13,12 +17,12 @@ QMAKE_EXTRA_TARGETS += include_dependencies
 POST_TARGETDEPS += include_dependencies
 
 # runtime environment
-LIBS += -L ../lib -lqt-mimetypes
+LIBS += -L ../src/mimetypes -lqt-mimetypes
 
 
 API_DIR = ..
 
-INCLUDEPATH += $$API_DIR/src/mimetypes $$API_DIR/unittests
+INCLUDEPATH += $$API_DIR/src/mimetypes $$API_DIR/unittests ../src/mimetypes
 
 
 SOURCES += tst_mimetypes-empty.cpp

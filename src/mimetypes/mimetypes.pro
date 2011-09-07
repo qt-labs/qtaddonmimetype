@@ -1,11 +1,14 @@
-CONFIG   += qt
+#CONFIG   += qt
 TEMPLATE = lib
 TARGET   = qt-mimetypes
-DESTDIR  = ../../lib
 
 # QtCore/qlist.h uses /usr/include/limits.h which uses does not compile with -pedantic.
-#MAKE_CXXFLAGS += -W -Wall -Wextra -Werror -ansi -pedantic -Wshadow -Wno-long-long -Wnon-virtual-dtor -Wc++0x-compat
-QMAKE_CXXFLAGS += -W -Wall -Wextra -Werror -ansi           -Wshadow -Wno-long-long -Wnon-virtual-dtor -Wc++0x-compat
+#MAKE_CXXFLAGS += -W -Wall -Wextra -Werror -ansi -pedantic -Wshadow -Wno-long-long -Wnon-virtual-dtor
+QMAKE_CXXFLAGS += -W -Wall -Wextra -Werror -ansi           -Wshadow -Wno-long-long -Wnon-virtual-dtor
+mac|darwin: {
+} else {
+    QMAKE_CXXFLAGS += -Wc++0x-compat
+}
 
 # dependency management
 QMAKE_CXXFLAGS += -MMD
@@ -17,7 +20,7 @@ POST_TARGETDEPS += include_dependencies
 
 API_DIR = ../..
 
-INCLUDEPATH += $$API_DIR
+INCLUDEPATH += $$API_DIR/src/mimetypes
 
 
 SOURCES += $$API_DIR/src/mimetypes/qmimetype.cpp \
@@ -31,3 +34,12 @@ HEADERS += $$API_DIR/src/mimetypes/qmimetypesfwd.h \
            $$API_DIR/src/mimetypes/qmimetyperegistry.h \
            $$API_DIR/src/mimetypes/qserviceaction.h \
            $$API_DIR/src/mimetypes/qserviceaction_p.h
+
+
+the_includes.files += $$API_DIR/src/mimetypes/qmimetypesfwd.h \
+                      $$API_DIR/src/mimetypes/qmimetype.h \
+                      $$API_DIR/src/mimetypes/qmimetyperegistry.h \
+                      $$API_DIR/src/mimetypes/qserviceaction.h
+
+
+INSTALLS += the_includes target
