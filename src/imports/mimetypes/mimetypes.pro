@@ -18,7 +18,7 @@ include_dependencies.commands = @if grep \"^-include \\*.d\" Makefile >/dev/null
 QMAKE_EXTRA_TARGETS += include_dependencies
 POST_TARGETDEPS += include_dependencies
 
-LIBS += -L ../../mimetypes -lqt-mimetypes
+LIBS += -L ../../mimetypes -lQtAddOnMimeTypes
 
 
 API_DIR = ../../..
