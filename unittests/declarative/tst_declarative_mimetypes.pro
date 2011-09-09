@@ -4,7 +4,7 @@ TARGET=tst_declarative_mimetypes
 QT += qmltest
 
 # runtime environment
-LIBS += -L ../../src/mimetypes -lQtAddOnMimeTypes
+LIBS += -L../../src/mimetypes -lQtAddOnMimeTypes
 
 
 API_DIR = ../..
