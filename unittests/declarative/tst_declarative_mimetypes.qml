@@ -1,6 +1,6 @@
 import Qt 4.7
 import QtTest 1.0
-import com.nokia.MimeTypes 1.0
+import QtMimeTypes 1.0
 
 TestCase {
     name: "tst_declarative_mimetypes"
