@@ -22,7 +22,7 @@ QMAKE_EXTRA_TARGETS += include_dependencies
 POST_TARGETDEPS += include_dependencies
 
 # runtime environment
-LIBS += -L../src/mimetypes -lQtAddOnMimeTypes
+LIBS += -L../src/mimetypes -lQtMimeTypes
 
 
 API_DIR = ..

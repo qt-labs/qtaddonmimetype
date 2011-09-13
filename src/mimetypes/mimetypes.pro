@@ -1,6 +1,6 @@
 #CONFIG   += qt
 TEMPLATE = lib
-TARGET   = QtAddOnMimeTypes
+TARGET   = QtMimeTypes
 
 # QtCore/qlist.h uses /usr/include/limits.h which uses does not compile with -pedantic.
 #MAKE_CXXFLAGS += -W -Wall -Wextra -Werror -ansi -pedantic -Wshadow -Wno-long-long -Wnon-virtual-dtor
