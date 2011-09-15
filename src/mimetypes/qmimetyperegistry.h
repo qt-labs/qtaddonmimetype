@@ -39,8 +39,8 @@
 **
 ****************************************************************************/
 
-#ifndef MIMETYPES_H_INCLUDED
-#define MIMETYPES_H_INCLUDED
+#ifndef QT_MIMETYPES_H_INCLUDED
+#define QT_MIMETYPES_H_INCLUDED
 
 #include "qmimetype.h"
 #include "qmimetypesfwd.h"
@@ -64,19 +64,11 @@ public:
 
     // --------------------------------------------------------------------------------------------
 
-    void insertMimeType (
-             const QMimeType &mimeType
-         );
-
     QList<QMimeTypeName> mimeTypes() const;
 
     QMimeType findMimeType (
                   const QMimeTypeName &mimeTypeName
               ) const;
-
-    void removeMimeType (
-             const QMimeTypeName &mimeTypeName
-         );
 
     // --------------------------------------------------------------------------------------------
 
@@ -98,19 +90,11 @@ public:
 
     // --------------------------------------------------------------------------------------------
 
-    void insertServiceAction (
-             const QServiceAction &serviceAction
-         );
-
     QList<QServiceActionName> serviceActions() const;
 
     QServiceAction findServiceAction (
                        const QServiceActionName &serviceActionName
                    );
-
-    void removeServiceAction (
-             const QServiceActionName &serviceActionName
-         );
 
     // --------------------------------------------------------------------------------------------
 
@@ -127,12 +111,6 @@ public:
 
     // --------------------------------------------------------------------------------------------
 
-    void registerApplication (
-             const QApplicationId &applicationId,
-             const QServiceActionName &serviceActionName,
-             const QMimeTypeName &mimeTypeName
-         );
-
     void increaseApplicationPreference (
              const QApplicationId &applicationId,
              const QServiceActionName &serviceActionName,
@@ -143,10 +121,6 @@ public:
              const QApplicationId &applicationId,
              const QServiceActionName &serviceActionName,
              const QMimeTypeName &mimeTypeName
-         );
-
-    void unregisterApplication (
-             const QApplicationId &applicationId
          );
 
     QList<QPair<QApplicationId, QServiceActionName> > findApplications (
@@ -164,4 +138,4 @@ private:
     QMimeTypeRegistryPrivate *d_ptr;
 };
 
-#endif
+#endif   // QT_MIMETYPES_H_INCLUDED

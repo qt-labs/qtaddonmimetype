@@ -61,15 +61,6 @@ QMimeTypeRegistry::~QMimeTypeRegistry()
 
 // ------------------------------------------------------------------------------------------------
 
-void QMimeTypeRegistry::insertMimeType (
-                            const QMimeType &mimeType
-                        )
-{
-    Q_UNUSED(mimeType)
-}
-
-// ------------------------------------------------------------------------------------------------
-
 QList<QMimeTypeName> QMimeTypeRegistry::mimeTypes() const
 {
     typedef QList<QMimeTypeName> Result;
@@ -88,15 +79,6 @@ QMimeType QMimeTypeRegistry::findMimeType (
     Q_UNUSED(searchMimeTypeName)
 
     return Result();
-}
-
-// ------------------------------------------------------------------------------------------------
-
-void QMimeTypeRegistry::removeMimeType (
-                            const QMimeTypeName &mimeTypeName
-                        )
-{
-    Q_UNUSED(mimeTypeName)
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -156,15 +138,6 @@ QMimeTypeName QMimeTypeRegistry::determineMimeType (
 
 // ------------------------------------------------------------------------------------------------
 
-void QMimeTypeRegistry::insertServiceAction (
-                            const QServiceAction &serviceAction
-                        )
-{
-    Q_UNUSED(serviceAction)
-}
-
-// ------------------------------------------------------------------------------------------------
-
 QList<QServiceActionName> QMimeTypeRegistry::serviceActions() const
 {
     typedef QList<QServiceActionName> Result;
@@ -183,15 +156,6 @@ QServiceAction QMimeTypeRegistry::findServiceAction (
     Q_UNUSED(searchServiceActionName)
 
     return Result();
-}
-
-// ------------------------------------------------------------------------------------------------
-
-void QMimeTypeRegistry::removeServiceAction (
-                            const QServiceActionName &serviceActionName
-                        )
-{
-    Q_UNUSED(serviceActionName)
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -224,19 +188,6 @@ void QMimeTypeRegistry::setUserAlwaysSelectsApplication (
 
 // ------------------------------------------------------------------------------------------------
 
-void QMimeTypeRegistry::registerApplication (
-                            const QApplicationId &applicationId,
-                            const QServiceActionName &serviceActionName,
-                            const QMimeTypeName &mimeTypeName
-                        )
-{
-    Q_UNUSED(applicationId)
-    Q_UNUSED(serviceActionName)
-    Q_UNUSED(mimeTypeName)
-}
-
-// ------------------------------------------------------------------------------------------------
-
 void QMimeTypeRegistry::increaseApplicationPreference (
                             const QApplicationId &applicationId,
                             const QServiceActionName &serviceActionName,
@@ -259,15 +210,6 @@ void QMimeTypeRegistry::decreaseApplicationPreference (
     Q_UNUSED(applicationId)
     Q_UNUSED(serviceActionName)
     Q_UNUSED(mimeTypeName)
-}
-
-// ------------------------------------------------------------------------------------------------
-
-void QMimeTypeRegistry::unregisterApplication (
-                            const QApplicationId &applicationId
-                        )
-{
-    Q_UNUSED(applicationId)
 }
 
 // ------------------------------------------------------------------------------------------------

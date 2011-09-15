@@ -39,8 +39,8 @@
 **
 ****************************************************************************/
 
-#ifndef DECLARATIVE_MIME_TYPE_REGISTRY_P_H_INCLUDED
-#define DECLARATIVE_MIME_TYPE_REGISTRY_P_H_INCLUDED
+#ifndef QT_DECLARATIVE_MIME_TYPE_REGISTRY_P_H_INCLUDED
+#define QT_DECLARATIVE_MIME_TYPE_REGISTRY_P_H_INCLUDED
 
 #include "qmimetyperegistry.h"
 
@@ -81,19 +81,11 @@ public:
 
     // --------------------------------------------------------------------------------------------
 
-    Q_INVOKABLE void insertMimeType (
-                         QDeclarativeMimeType *mimeType
-                     );
-
     QVariantList mimeTypes() const;
 
     Q_INVOKABLE QDeclarativeMimeType *findMimeType (
                                           const QString &mimeTypeName
                                       );
-
-    Q_INVOKABLE void removeMimeType (
-                         const QString &mimeTypeName
-                     );
 
     // --------------------------------------------------------------------------------------------
 
@@ -115,19 +107,11 @@ public:
 
     // --------------------------------------------------------------------------------------------
 
-    Q_INVOKABLE void insertServiceAction (
-                         QDeclarativeServiceAction *serviceAction
-                     );
-
     QVariantList serviceActions() const;
 
     Q_INVOKABLE QDeclarativeServiceAction *findServiceAction (
                                                const QString &serviceActionName
                                            );
-
-    Q_INVOKABLE void removeServiceAction (
-                         const QString &serviceActionName
-                     );
 
     // --------------------------------------------------------------------------------------------
 
@@ -144,12 +128,6 @@ public:
 
     // --------------------------------------------------------------------------------------------
 
-    Q_INVOKABLE void registerApplication (
-                         const QString &applicationId,
-                         const QString &serviceActionName,
-                         const QString &mimeTypeName
-                     );
-
     Q_INVOKABLE void increaseApplicationPreference (
                          const QString &applicationId,
                          const QString &serviceActionName,
@@ -160,10 +138,6 @@ public:
                          const QString &applicationId,
                          const QString &serviceActionName,
                          const QString &mimeTypeName
-                     );
-
-    Q_INVOKABLE void unregisterApplication (
-                         const QString &applicationId
                      );
 
     Q_INVOKABLE QVariantList findApplications (
@@ -183,4 +157,4 @@ private:
 
 QML_DECLARE_TYPE(QDeclarativeMimeTypeRegistry)
 
-#endif
+#endif   // QT_DECLARATIVE_MIME_TYPE_REGISTRY_P_H_INCLUDED
