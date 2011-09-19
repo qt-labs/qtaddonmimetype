@@ -58,7 +58,7 @@ TestCase {
         return "/usr/share/icons/oxygen/64x64/mimetypes/image-x-generic.png"
     }
 
-    function firstPngMimeTypeFileExtention() {
+    function firstPngMimeTypeFilenameExtension() {
         return ".png"
     }
 
@@ -67,7 +67,7 @@ TestCase {
         name: pngMimeTypeName()
         displayName: pngMimeTypeDisplayName()
         iconUrl: pngMimeTypeIconUrl()
-        fileExtentions: [ firstPngMimeTypeFileExtention() ]
+        filenameExtensions: [ firstPngMimeTypeFilenameExtension() ]
     }
 
     MimeType {
@@ -120,14 +120,14 @@ TestCase {
         compare(instantiatedPngMimeType.equals(otherPngMimeType), false)
     }
 
-    function test_MimeType_fileExtentions() {
+    function test_MimeType_filenameExtensions() {
         otherPngMimeType.assign(instantiatedPngMimeType)
-        otherPngMimeType.fileExtentions = []
-        compare(otherPngMimeType.fileExtentions.length, 0)
+        otherPngMimeType.filenameExtensions = []
+        compare(otherPngMimeType.filenameExtensions.length, 0)
 
         // Verify that the Id is part of the equality test:
-        compare(instantiatedPngMimeType.fileExtentions.length, 1)
-        compare(instantiatedPngMimeType.fileExtentions[0], ".png")
+        compare(instantiatedPngMimeType.filenameExtensions.length, 1)
+        compare(instantiatedPngMimeType.filenameExtensions[0], ".png")
 
         compare(instantiatedPngMimeType.equals(otherPngMimeType), false)
     }
@@ -213,11 +213,11 @@ TestCase {
         compare(1, 0)
     }
 
-    function test_MimeTypeRegistry_fileExtentions() {
+    function test_MimeTypeRegistry_filenameExtensions() {
         compare(1, 0)
     }
 
-    function test_MimeTypeRegistry_extractFileExtention() {
+    function test_MimeTypeRegistry_extractFilenameExtension() {
         compare(1, 0)
     }
 

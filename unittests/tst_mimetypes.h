@@ -55,7 +55,7 @@ private slots:
     void test_QMimeType_name();
     void test_QMimeType_displayName();
     void test_QMimeType_iconUrl();
-    void test_QMimeType_fileExtentions();
+    void test_QMimeType_filenameExtensions();
 
     void test_QServiceAction_isValid();
     void test_QServiceAction_name();
@@ -64,8 +64,8 @@ private slots:
 
     void test_QMimeTypeRegistry_mimeTypes();
     void test_QMimeTypeRegistry_findMimeType();
-    void test_QMimeTypeRegistry_fileExtentions();
-    void test_QMimeTypeRegistry_extractFileExtention();
+    void test_QMimeTypeRegistry_filenameExtensions();
+    void test_QMimeTypeRegistry_extractFilenameExtension();
     void test_QMimeTypeRegistry_findMimeTypes();
     void test_QMimeTypeRegistry_determineMimeType();
     void test_QMimeTypeRegistry_serviceActions();

@@ -113,7 +113,7 @@ const QMimeTypeName &QDeclarativeMimeType::name() const
 
 void QDeclarativeMimeType::setName(const QMimeTypeName &newName)
 {
-    m_MimeType = QMimeType(newName, m_MimeType.displayName(), m_MimeType.iconUrl(), m_MimeType.fileExtentions());
+    m_MimeType = QMimeType(newName, m_MimeType.displayName(), m_MimeType.iconUrl(), m_MimeType.filenameExtensions());
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -127,7 +127,7 @@ const QString &QDeclarativeMimeType::displayName() const
 
 void QDeclarativeMimeType::setDisplayName(const QString &newDisplayName)
 {
-    m_MimeType = QMimeType(m_MimeType.name(), newDisplayName, m_MimeType.iconUrl(), m_MimeType.fileExtentions());
+    m_MimeType = QMimeType(m_MimeType.name(), newDisplayName, m_MimeType.iconUrl(), m_MimeType.filenameExtensions());
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -141,17 +141,17 @@ const QString &QDeclarativeMimeType::iconUrl() const
 
 void QDeclarativeMimeType::setIconUrl(const QString &newIconUrl)
 {
-    m_MimeType = QMimeType(m_MimeType.name(), m_MimeType.displayName(), newIconUrl, m_MimeType.fileExtentions());
+    m_MimeType = QMimeType(m_MimeType.name(), m_MimeType.displayName(), newIconUrl, m_MimeType.filenameExtensions());
 }
 
 // ------------------------------------------------------------------------------------------------
 
-QVariantList QDeclarativeMimeType::fileExtentions() const
+QVariantList QDeclarativeMimeType::filenameExtensions() const
 {
     QVariantList result;
 
-    foreach (const QString &fileExtention, m_MimeType.fileExtentions()) {
-        result << fileExtention;
+    foreach (const QString &filenameExtension, m_MimeType.filenameExtensions()) {
+        result << filenameExtension;
     }
 
     return result;
@@ -159,17 +159,17 @@ QVariantList QDeclarativeMimeType::fileExtentions() const
 
 // ------------------------------------------------------------------------------------------------
 
-void QDeclarativeMimeType::setFileExtentions(const QVariantList &newFileExtentions)
+void QDeclarativeMimeType::setFilenameExtensions(const QVariantList &newFilenameExtensions)
 {
     QList<QString> result;
 
-    foreach (const QVariant &newFileExtention, newFileExtentions) {
-        if (newFileExtention.type() != QVariant::String) {
-            qWarning() << Q_FUNC_INFO << "newFileExtention" << newFileExtention << " is not a string!";
+    foreach (const QVariant &newFilenameExtension, newFilenameExtensions) {
+        if (newFilenameExtension.type() != QVariant::String) {
+            qWarning() << Q_FUNC_INFO << "newFilenameExtension" << newFilenameExtension << " is not a string!";
             continue;
         }
 
-        result << newFileExtention.toString();
+        result << newFilenameExtension.toString();
     }
 
     m_MimeType = QMimeType(m_MimeType.name(), m_MimeType.displayName(), m_MimeType.iconUrl(), result);

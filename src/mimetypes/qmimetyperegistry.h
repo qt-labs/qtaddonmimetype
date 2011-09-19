@@ -72,14 +72,14 @@ public:
 
     // --------------------------------------------------------------------------------------------
 
-    QList<QString> fileExtentions() const;
+    QList<QString> filenameExtensions() const;
 
-    QString extractFileExtention (
+    QString extractFilenameExtension (
                  const QString &fileName
             ) const;
 
     QList<QMimeTypeName> findMimeTypes (
-                             const QString &fileExtention
+                             const QString &filenameExtension
                          ) const;
 
     // --------------------------------------------------------------------------------------------

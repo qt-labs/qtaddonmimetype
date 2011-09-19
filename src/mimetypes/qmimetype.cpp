@@ -73,18 +73,18 @@ QMimeType::QMimeType() :
     \fn QMimeType::QMimeType(const QMimeTypeName &theName,
                              const QString &theDisplayName,
                              const QString &theIconUrl,
-                             const QList<QString> &theFileExtentions);
+                             const QList<QString> &theFilenameExtensions);
     \brief Initializes the attributes with the specified values.
     \a theName The ID of the action
     \a theDisplayName The description of the action to be displayed on user interfaces
     \a theIconUrl The file name of an icon image that represents the action
-    \a theFileExtentions The file extentions that are known to contain data of the MIME type
+    \a theFilenameExtensions The filename extensions that are known to contain data of the MIME type
  */
 QMimeType::QMimeType(const QMimeTypeName &theName,
                      const QString &theDisplayName,
                      const QString &theIconUrl,
-                     const QList<QString> &theFileExtentions) :
-        d_ptr(new QMimeTypePrivate(theName, theDisplayName, theIconUrl, theFileExtentions))
+                     const QList<QString> &theFilenameExtensions) :
+        d_ptr(new QMimeTypePrivate(theName, theDisplayName, theIconUrl, theFilenameExtensions))
 {}
 
 // ------------------------------------------------------------------------------------------------
@@ -155,7 +155,7 @@ bool QMimeType::isValid() const
     return !d_ptr->m_Name.isEmpty() &&
            !d_ptr->m_DisplayName.isEmpty() &&
            !d_ptr->m_IconUrl.isEmpty() &&
-           !d_ptr->m_FileExtentions.isEmpty();
+           !d_ptr->m_FilenameExtensions.isEmpty();
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -200,10 +200,10 @@ const QString &QMimeType::iconUrl() const
 // ------------------------------------------------------------------------------------------------
 
 /*!
-    \fn QList<QString> QMimeType::fileExtentions() const;
-    \brief Returns the file extentions that are known to contain data of the MIME type.
+    \fn QList<QString> QMimeType::filenameExtensions() const;
+    \brief Returns the filename extensions that are known to contain data of the MIME type.
  */
-const QList<QString> &QMimeType::fileExtentions() const
+const QList<QString> &QMimeType::filenameExtensions() const
 {
-    return d_ptr->m_FileExtentions;
+    return d_ptr->m_FilenameExtensions;
 }

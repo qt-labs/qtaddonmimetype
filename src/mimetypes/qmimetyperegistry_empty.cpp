@@ -83,7 +83,7 @@ QMimeType QMimeTypeRegistry::findMimeType (
 
 // ------------------------------------------------------------------------------------------------
 
-QList<QString> QMimeTypeRegistry::fileExtentions() const
+QList<QString> QMimeTypeRegistry::filenameExtensions() const
 {
     typedef QList<QString> Result;
 
@@ -92,18 +92,18 @@ QList<QString> QMimeTypeRegistry::fileExtentions() const
 
 // ------------------------------------------------------------------------------------------------
 
-QString QMimeTypeRegistry::extractFileExtention (
+QString QMimeTypeRegistry::extractFilenameExtension (
                                const QString &fileName
                            ) const
 {
     QString result;
 
-    const QList<QString> theFileExtentions (fileExtentions());
+    const QList<QString> theFilenameExtensions (filenameExtensions());
 
-    foreach (const QString &fileExtention, theFileExtentions) {
-        if (fileExtention.length() > result.length() &&
-                fileName.right(fileExtention.length()) == fileExtention) {
-            result = fileExtention;
+    foreach (const QString &filenameExtension, theFilenameExtensions) {
+        if (filenameExtension.length() > result.length() &&
+                fileName.right(filenameExtension.length()) == filenameExtension) {
+            result = filenameExtension;
         }
     }
 
@@ -113,12 +113,12 @@ QString QMimeTypeRegistry::extractFileExtention (
 // ------------------------------------------------------------------------------------------------
 
 QList<QMimeTypeName> QMimeTypeRegistry::findMimeTypes (
-                                            const QString &searchFileExtention
+                                            const QString &searchFilenameExtension
                                         ) const
 {
     typedef QList<QMimeTypeName> Result;
 
-    Q_UNUSED(searchFileExtention)
+    Q_UNUSED(searchFilenameExtension)
 
     return Result();
 }

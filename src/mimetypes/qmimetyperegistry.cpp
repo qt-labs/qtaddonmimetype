@@ -277,7 +277,7 @@
 
 /*!
     \class QMimeTypeRegistry
-    \brief QMimeTypeRegistry is the data store that manages mime types, service actions and file extentions.
+    \brief QMimeTypeRegistry is the data store that manages mime types, service actions and filename extensions.
  */
 
 // ------------------------------------------------------------------------------------------------
@@ -339,21 +339,21 @@
 // ------------------------------------------------------------------------------------------------
 
 /*!
-    \fn QList<QString> QMimeTypeRegistry::fileExtentions() const;
-    \brief Returns a list of file extentions of all registered MIME types.
+    \fn QList<QString> QMimeTypeRegistry::filenameExtensions() const;
+    \brief Returns a list of filename extensions of all registered MIME types.
  */
 
 // ------------------------------------------------------------------------------------------------
 
 /*!
-    \fn QString QMimeTypeRegistry::extractFileExtention (
+    \fn QString QMimeTypeRegistry::extractFilenameExtension (
                                        const QString &fileName
                                    ) const;
-    \brief Extracts the file extention from the specified file name.
+    \brief Extracts the filename extension from the specified file name.
 
-    \a fileName A file name of which we need to determine the extention.
+    \a fileName A file name of which we need to determine the extension.
 
-    Will only extract as deep into the file name as there are file extentions known currently.
+    Will only extract as deep into the file name as there are filename extensions known currently.
     E.g. "a.b.c.tar.gz" will result in ".tar.gz".
 
     Returns an empty string if no knwn file extentipn coulb be extracted from the file name.
@@ -363,11 +363,11 @@
 
 /*!
     \fn QList<QMimeTypeName> QMimeTypeRegistry::findMimeTypes (
-                                                    const QString &fileExtention
+                                                    const QString &filenameExtension
                                                 ) const;
-    \brief Determines which MIME types use the specified file extention.
+    \brief Determines which MIME types use the specified filename extension.
 
-    \a fileExtention The file extention for which we need to perform the search.
+    \a filenameExtension The filename extension for which we need to perform the search.
  */
 
 // ------------------------------------------------------------------------------------------------

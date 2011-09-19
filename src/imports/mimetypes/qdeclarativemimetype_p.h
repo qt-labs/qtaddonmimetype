@@ -66,9 +66,9 @@ class QDeclarativeMimeType : public QObject
                READ iconUrl
                WRITE setIconUrl)
 
-    Q_PROPERTY(QVariantList fileExtentions
-               READ fileExtentions
-               WRITE setFileExtentions
+    Q_PROPERTY(QVariantList filenameExtensions
+               READ filenameExtensions
+               WRITE setFilenameExtensions
                STORED false)
 
     Q_PROPERTY(bool isValid
@@ -101,8 +101,8 @@ public:
     void setDisplayName(const QString &newDisplayName);
     const QString &iconUrl() const;
     void setIconUrl(const QString &newIconUrl);
-    QVariantList fileExtentions() const;
-    void setFileExtentions(const QVariantList &newFileExtentions);
+    QVariantList filenameExtensions() const;
+    void setFilenameExtensions(const QVariantList &newFilenameExtensions);
 
 private:
     QMimeType m_MimeType;

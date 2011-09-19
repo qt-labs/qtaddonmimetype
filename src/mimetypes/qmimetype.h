@@ -65,7 +65,7 @@ public:
     QMimeType(const QMimeTypeName &theName,
               const QString &theDisplayName,
               const QString &theIconUrl,
-              const QList<QString> &theFileExtentions);
+              const QList<QString> &theFilenameExtensions);
     QMimeType(const QMimeType &other);
     QMimeType &operator=(const QMimeType &other);
     ~QMimeType();
@@ -82,7 +82,7 @@ public:
     const QMimeTypeName &name() const;
     const QString &displayName() const;
     const QString &iconUrl() const;
-    const QList<QString> &fileExtentions() const;
+    const QList<QString> &filenameExtensions() const;
 
 private:
     QScopedPointer<QMimeTypePrivate> d_ptr;

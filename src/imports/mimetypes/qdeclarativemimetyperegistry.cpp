@@ -95,12 +95,12 @@ QDeclarativeMimeType *QDeclarativeMimeTypeRegistry::findMimeType (
 
 // ------------------------------------------------------------------------------------------------
 
-QVariantList QDeclarativeMimeTypeRegistry::fileExtentions() const
+QVariantList QDeclarativeMimeTypeRegistry::filenameExtensions() const
 {
     QVariantList result;
 
-    foreach (const QString &fileExtention, m_MimeTypeRegistry.fileExtentions()) {
-        result << fileExtention;
+    foreach (const QString &filenameExtension, m_MimeTypeRegistry.filenameExtensions()) {
+        result << filenameExtension;
     }
 
     return result;
@@ -108,22 +108,22 @@ QVariantList QDeclarativeMimeTypeRegistry::fileExtentions() const
 
 // ------------------------------------------------------------------------------------------------
 
-QString QDeclarativeMimeTypeRegistry::extractFileExtention (
+QString QDeclarativeMimeTypeRegistry::extractFilenameExtension (
                                           const QString &fileName
                                       ) const
 {
-    return m_MimeTypeRegistry.extractFileExtention(fileName);
+    return m_MimeTypeRegistry.extractFilenameExtension(fileName);
 }
 
 // ------------------------------------------------------------------------------------------------
 
 QVariantList QDeclarativeMimeTypeRegistry::findMimeTypes (
-                                               const QString &fileExtention
+                                               const QString &filenameExtension
                                            ) const
 {
     QVariantList result;
 
-    foreach (const QMimeTypeName &mimeTypeName, m_MimeTypeRegistry.findMimeTypes(fileExtention)) {
+    foreach (const QMimeTypeName &mimeTypeName, m_MimeTypeRegistry.findMimeTypes(filenameExtension)) {
         result << mimeTypeName;
     }
 

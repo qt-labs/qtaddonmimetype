@@ -61,8 +61,8 @@ class QDeclarativeMimeTypeRegistry : public QObject
                READ mimeTypes
                STORED false)
 
-    Q_PROPERTY(QVariantList fileExtentions
-               READ fileExtentions
+    Q_PROPERTY(QVariantList filenameExtensions
+               READ filenameExtensions
                STORED false)
 
     Q_PROPERTY(QVariantList serviceActions
@@ -89,14 +89,14 @@ public:
 
     // --------------------------------------------------------------------------------------------
 
-    QVariantList fileExtentions() const;
+    QVariantList filenameExtensions() const;
 
-    Q_INVOKABLE QString extractFileExtention (
+    Q_INVOKABLE QString extractFilenameExtension (
                             const QString &fileName
                         ) const;
 
     Q_INVOKABLE QVariantList findMimeTypes (
-                                 const QString &fileExtention
+                                 const QString &filenameExtension
                              ) const;
 
     // --------------------------------------------------------------------------------------------

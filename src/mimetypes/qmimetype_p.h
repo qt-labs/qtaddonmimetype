@@ -52,11 +52,11 @@ struct QMimeTypePrivate
     QMimeTypePrivate(const QMimeTypeName &theName,
                      const QString &theDisplayName,
                      const QString &theIconUrl,
-                     const QList<QString> &theFileExtentions) :
+                     const QList<QString> &theFilenameExtensions) :
             m_Name(theName),
             m_DisplayName(theDisplayName),
             m_IconUrl(theIconUrl),
-            m_FileExtentions(theFileExtentions)
+            m_FilenameExtensions(theFilenameExtensions)
     {}
 
     bool operator==(const QMimeTypePrivate &other) const
@@ -64,13 +64,13 @@ struct QMimeTypePrivate
         return m_Name == other.m_Name &&
                m_DisplayName == other.m_DisplayName &&
                m_IconUrl == other.m_IconUrl &&
-               m_FileExtentions == other.m_FileExtentions;
+               m_FilenameExtensions == other.m_FilenameExtensions;
     }
 
     QMimeTypeName m_Name;
     QString m_DisplayName;
     QString m_IconUrl;
-    QList<QString> m_FileExtentions;
+    QList<QString> m_FilenameExtensions;
 };
 
 #endif

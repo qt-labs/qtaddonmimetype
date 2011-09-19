@@ -77,7 +77,7 @@ static const QString &pngMimeTypeIconUrl()
 
 // ------------------------------------------------------------------------------------------------
 
-static QList<QString> buildPngMimeTypeFileExtentions()
+static QList<QString> buildPngMimeTypeFilenameExtensions()
 {
     QList<QString> result;
     result << ".png";
@@ -86,9 +86,9 @@ static QList<QString> buildPngMimeTypeFileExtentions()
 
 // ------------------------------------------------------------------------------------------------
 
-static const QList<QString> &pngMimeTypeFileExtentions()
+static const QList<QString> &pngMimeTypeFilenameExtensions()
 {
-    static const QList<QString> result (buildPngMimeTypeFileExtentions());
+    static const QList<QString> result (buildPngMimeTypeFilenameExtensions());
     return result;
 }
 
@@ -97,7 +97,7 @@ static const QList<QString> &pngMimeTypeFileExtentions()
 void tst_mimetypes::test_QMimeType_isValid()
 {
     QMimeType instantiatedPngMimeType (
-                  pngMimeTypeName(), pngMimeTypeDisplayName(), pngMimeTypeIconUrl(), pngMimeTypeFileExtentions()
+                  pngMimeTypeName(), pngMimeTypeDisplayName(), pngMimeTypeIconUrl(), pngMimeTypeFilenameExtensions()
               );
 
     QVERIFY(instantiatedPngMimeType.isValid());
@@ -117,11 +117,11 @@ void tst_mimetypes::test_QMimeType_isValid()
 void tst_mimetypes::test_QMimeType_name()
 {
     QMimeType instantiatedPngMimeType (
-                  pngMimeTypeName(), pngMimeTypeDisplayName(), pngMimeTypeIconUrl(), pngMimeTypeFileExtentions()
+                  pngMimeTypeName(), pngMimeTypeDisplayName(), pngMimeTypeIconUrl(), pngMimeTypeFilenameExtensions()
               );
 
     QMimeType otherPngMimeType (
-                  QMimeTypeName(), pngMimeTypeDisplayName(), pngMimeTypeIconUrl(), pngMimeTypeFileExtentions()
+                  QMimeTypeName(), pngMimeTypeDisplayName(), pngMimeTypeIconUrl(), pngMimeTypeFilenameExtensions()
               );
 
     // Verify that the Id is part of the equality test:
@@ -135,11 +135,11 @@ void tst_mimetypes::test_QMimeType_name()
 void tst_mimetypes::test_QMimeType_displayName()
 {
     QMimeType instantiatedPngMimeType (
-                  pngMimeTypeName(), pngMimeTypeDisplayName(), pngMimeTypeIconUrl(), pngMimeTypeFileExtentions()
+                  pngMimeTypeName(), pngMimeTypeDisplayName(), pngMimeTypeIconUrl(), pngMimeTypeFilenameExtensions()
               );
 
     QMimeType otherPngMimeType (
-                  pngMimeTypeName(), QString(), pngMimeTypeIconUrl(), pngMimeTypeFileExtentions()
+                  pngMimeTypeName(), QString(), pngMimeTypeIconUrl(), pngMimeTypeFilenameExtensions()
               );
 
     // Verify that the IconUrl is part of the equality test:
@@ -153,11 +153,11 @@ void tst_mimetypes::test_QMimeType_displayName()
 void tst_mimetypes::test_QMimeType_iconUrl()
 {
     QMimeType instantiatedPngMimeType (
-                  pngMimeTypeName(), pngMimeTypeDisplayName(), pngMimeTypeIconUrl(), pngMimeTypeFileExtentions()
+                  pngMimeTypeName(), pngMimeTypeDisplayName(), pngMimeTypeIconUrl(), pngMimeTypeFilenameExtensions()
               );
 
     QMimeType otherPngMimeType (
-                  pngMimeTypeName(), pngMimeTypeDisplayName(), QString(), pngMimeTypeFileExtentions()
+                  pngMimeTypeName(), pngMimeTypeDisplayName(), QString(), pngMimeTypeFilenameExtensions()
               );
 
     // Verify that the IconUrl is part of the equality test:
@@ -168,18 +168,18 @@ void tst_mimetypes::test_QMimeType_iconUrl()
 
 // ------------------------------------------------------------------------------------------------
 
-void tst_mimetypes::test_QMimeType_fileExtentions()
+void tst_mimetypes::test_QMimeType_filenameExtensions()
 {
     QMimeType instantiatedPngMimeType (
-                  pngMimeTypeName(), pngMimeTypeDisplayName(), pngMimeTypeIconUrl(), pngMimeTypeFileExtentions()
+                  pngMimeTypeName(), pngMimeTypeDisplayName(), pngMimeTypeIconUrl(), pngMimeTypeFilenameExtensions()
               );
 
     QMimeType otherPngMimeType (
                   pngMimeTypeName(), pngMimeTypeDisplayName(), pngMimeTypeIconUrl(), QList<QString>()
               );
 
-    // Verify that the FileExtentions are part of the equality test:
-    QCOMPARE(instantiatedPngMimeType.fileExtentions(), pngMimeTypeFileExtentions());
+    // Verify that the FilenameExtensions are part of the equality test:
+    QCOMPARE(instantiatedPngMimeType.filenameExtensions(), pngMimeTypeFilenameExtensions());
 
     QVERIFY(instantiatedPngMimeType != otherPngMimeType);
 }
@@ -290,7 +290,7 @@ const QMimeType &pngMimeType()
                                pngMimeTypeName(),
                                pngMimeTypeDisplayName(),
                                pngMimeTypeIconUrl(),
-                               pngMimeTypeFileExtentions()
+                               pngMimeTypeFilenameExtensions()
                            );
     return result;
 }
@@ -309,14 +309,14 @@ void tst_mimetypes::test_QMimeTypeRegistry_findMimeType()
 
 // ------------------------------------------------------------------------------------------------
 
-void tst_mimetypes::test_QMimeTypeRegistry_fileExtentions()
+void tst_mimetypes::test_QMimeTypeRegistry_filenameExtensions()
 {
     QVERIFY(false);
 }
 
 // ------------------------------------------------------------------------------------------------
 
-void tst_mimetypes::test_QMimeTypeRegistry_extractFileExtention()
+void tst_mimetypes::test_QMimeTypeRegistry_extractFilenameExtension()
 {
     QVERIFY(false);
 }
